@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  height: 1000px;
+
 }
 
 .App-logo {
@@ -47,6 +47,12 @@
   justify-content: space-evenly;
   margin: 2em;
 }
+.photo-scroll-large {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .photo-tile {
   padding: 0.2em;
   min-height: 350px;
@@ -56,6 +62,7 @@
   justify-content: center;
   /* border: solid black 2px; */
 }
+
 .active {
   background-color: rgb(145, 216, 167);
 }
