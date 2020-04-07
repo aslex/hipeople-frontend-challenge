@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import axios from 'axios';
 
 export default function Home() {
   const [photos, setPhotos] = useState([]);
-
-  const [thumb, setThumb] = useState(true);
-  const [large, setLarge] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
 
   useEffect(() => {
@@ -30,14 +26,14 @@ export default function Home() {
   }, [loadMore]);
 
   const photoStream = photos.map((image, index) => {
-    console.log("mapping!");
-
     return (
       <div className="photo-tile" key={`${image.id}${index}`}>
-        <img
-          src={image.urls.thumb}
-          alt={image.description || `by ${image.user.name}`}
-        />
+        <a href={image.urls.raw} target="_blank">
+          <img
+            src={image.urls.thumb}
+            alt={image.description || `by ${image.user.name}`}
+          />
+        </a>
       </div>
     );
   });
@@ -46,13 +42,13 @@ export default function Home() {
     setLoadMore(!loadMore);
   }
 
-  const handleScrollTop = (e) => {
+  const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
-      <div className="size">
+      <div className="sticky">
         <button className="active" onClick={handleScrollTop}>
           scroll to top
         </button>
